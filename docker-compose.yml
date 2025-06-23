@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+    environment:
+      - USER=${USER:-appuser}
+      - XDEBUG_MODE=develop,debug
+      - XDEBUG_CONFIG="client_host=host.docker.internal"
+    volumes:
+      - ./src:/var/www
+    depends_on:
+      - db
+      - rabbitmq
+
+  webserver:
+    image: nginx:alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3.11-management
+    ports:
+      - "15672:15672" # Web UI
+      - "5672:5672"   # AMQP
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+  worker:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      args:
+        - UID=${UID}
+        - GID=${GID}
+    environment:
+      - USER=${USER:-appuser}
+    volumes:
+      - ./src:/var/www
+    command: php artisan queue:work --sleep=3 --tries=3
+    depends_on:
+      - db
+      - rabbitmq
+
+volumes:
+  postgres-data:
+  rabbitmq-data:
