@@ -139,6 +139,7 @@
             }
         }
     </style>
+{{--    @vite(['resources/js/app.js'])--}}
 </head>
 <body class="{{ false ? 'light-theme' : 'dark-theme' }}">
 <header class="header">
