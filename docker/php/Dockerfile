@@ -33,6 +33,12 @@ RUN curl -sSLf \
         https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions && \
     chmod +x /usr/local/bin/install-php-extensions && \
     install-php-extensions xdebug
+#RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
+#    && apk add --update linux-headers \
+#    && pecl install xdebug-3.2.2 \
+#    && docker-php-ext-enable xdebug \
+#    && apk del -f .build-deps
+
 
 # Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

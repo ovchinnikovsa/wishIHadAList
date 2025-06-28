@@ -1,3 +1,395 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F8E0E6;
+    color: #1A3C34;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #F8E0E6;
+    padding: 1rem 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.container-center {
+    justify-content: center;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.logo .main {
+    color: #1A3C34;
+    text-shadow: 1px 0 0 #FFFFFF, 0 1px 0 #FFFFFF, -1px 0 0 #FFFFFF, 0 -1px 0 #FFFFFF;
+}
+
+.logo .special {
+    font-style: italic;
+    font-weight: normal;
+    color: transparent;
+    -webkit-text-stroke: 1px #1A3C34;
+    text-transform: lowercase;
+}
+
+.menu {
+    display: flex;
+    gap: 1rem;
+    padding: .5rem 0;
+}
+
+.menu a {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #1A3C34;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.footer {
+    background-color: #F8E0E6;
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer a {
+    color: #1A3C34;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+body.dark-theme {
+    background-color: #242D3C;
+    color: #e3cdcd;
+}
+
+body.dark-theme .header {
+    background-color: #242D3C;
+}
+
+body.dark-theme .footer {
+    background-color: #242D3C;
+}
+
+body.dark-theme .logo .main {
+    color: #e3cdcd;
+    text-shadow: none;
+}
+
+body.dark-theme .logo .special {
+    color: #e3cdcd;
+    -webkit-text-stroke: 0;
+}
+
+body.dark-theme a {
+    color: #e3cdcd;
+}
+
+body.dark-theme .logo .special {
+    font-style: italic;
+    font-weight: normal;
+    color: transparent;
+    -webkit-text-stroke: 1px #e3cdcd;
+    text-transform: lowercase;
+}
+
+.text-primary {
+    color: #1A3C34;
+}
+
+.dark-theme .text-primary {
+    color: #e3cdcd;
+}
+
+.text-error {
+    color: #dc2626;
+}
+
+.dark-theme .text-error {
+    color: #f87171;
+}
+
+.text-success {
+    color: #10b981;
+}
+
+.dark-theme .text-success {
+    color: #34d399;
+}
+
+.btn {
+    background-color: #1A3C34;
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2A5C54;
+}
+
+.btn-danger {
+    background-color: #dc2626;
+    color: #FFFFFF;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c;
+}
+
+.dark-theme .btn {
+    background-color: #e3cdcd;
+    color: #242D3C;
+}
+
+.dark-theme .btn:hover {
+    background-color: #d1bdbd;
+}
+
+.dark-theme .btn-danger {
+    background-color: #f87171;
+    color: #242D3C;
+}
+
+.dark-theme .btn-danger:hover {
+    background-color: #ef4444;
+}
+
+.input {
+    padding: 0.5rem;
+    border: 1px solid #1A3C34;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #1A3C34;
+}
+
+.dark-theme .input {
+    border-color: #e3cdcd;
+    background-color: #242D3C;
+    color: #e3cdcd;
+}
+
+.bg-light {
+    background-color: #F8E0E6;
+}
+
+.dark-theme .bg-light {
+    background-color: #242D3C;
+}
+
+.bg-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .bg-overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #1A3C34;
+}
+
+body.dark-theme label {
+    color: #e3cdcd;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #1A3C34;
+    border-radius: 0.25rem;
+    background-color: #FFFFFF;
+    color: #1A3C34;
+    margin-top: 0.25rem;
+}
+
+.nav-link-active {
+    border-left-color: #1A3C34;
+    color: #1A3C34;
+    background-color: #E0D0D6;
+}
+
+body.dark-theme .nav-link {
+    color: #e3cdcd;
+}
+
+body.dark-theme .nav-link-active {
+    border-left-color: #e3cdcd;
+    color: #e3cdcd;
+    background-color: #1A202C;
+}
+
+body.dark-theme input[type="text"],
+body.dark-theme input[type="email"],
+body.dark-theme input[type="password"],
+body.dark-theme textarea {
+    border-color: #e3cdcd;
+    background-color: #3A4556;
+    color: #e3cdcd;
+}
+
+.error {
+    color: #FF0000;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.success {
+    color: #008000;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+body.dark-theme .success {
+    color: #00FF00;
+}
+
+.text-secondary {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+body.dark-theme .text-secondary {
+    color: #9ca3af;
+}
+
+.link {
+    color: #1A3C34;
+    text-decoration: underline;
+}
+
+.link:hover {
+    color: #2A5C54;
+}
+
+body.dark-theme .link {
+    color: #e3cdcd;
+}
+
+body.dark-theme .link:hover {
+    color: #d1bdbd;
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.social-button.google {
+    background-color: #DB4437;
+}
+
+.social-button.yandex {
+    background-color: #000000;
+}
+
+.social-button.vk {
+    background-color: #4A76A8;
+}
+
+.social-button:hover {
+    opacity: 0.8;
+}
+
+button {
+    background-color: #1A3C34;
+    color: #FFFFFF;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+body.dark-theme button {
+    border-color: #e3cdcd;
+    background-color: #3A4556;
+    color: #e3cdcd;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.btn-secondary {
+    background-color: #F8E0E6;
+    color: #1A3C34;
+    border: 1px solid #1A3C34;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.btn-secondary:hover {
+    background-color: #E0D0D6;
+}
+
+.dark-theme .btn-secondary {
+    background-color: #242D3C;
+    color: #e3cdcd;
+    border: 1px solid #e3cdcd;
+}
+
+.dark-theme .btn-secondary:hover {
+    background-color: #1A202C;
+}

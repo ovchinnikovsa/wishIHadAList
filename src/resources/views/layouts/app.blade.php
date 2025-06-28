@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="icons/light.ico" type="image/x-icon">
+    <link rel="icon" href="icons/dark.ico" media="(prefers-color-scheme: dark)" type="image/x-icon">
+        @vite(['resources/css/app.css'])
+    {{--    @vite(['resources/js/app.js'])--}}
+</head>
+<body class="{{ false ? 'light-theme' : 'dark-theme' }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <livewire:layout.navigation />
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+    <header class="header">
+        <div class="container container-center">
+            <div class="logo">
+                <span class="main">WISH</span> <span class="special">i had a</span> <span class="main">LIST</span>
+            </div>
         </div>
-    </body>
+        <div class="container container-center">
+            <livewire:layout.navigation/>
+        </div>
+    </header>
+
+    <!-- Page Heading -->
+    @if (isset($header))
+        {{ $header }}
+    @endif
+
+    <main class="content">
+        {{ $slot }}
+    </main>
+    <footer class="footer">
+        <p>Created by <strong>ovchie</strong> | Contact: <a href="mailto:example@example.com">example@example.com</a> | <a
+                href="#">❤️Donate❤️</a></p>
+    </footer>
+</body>
 </html>

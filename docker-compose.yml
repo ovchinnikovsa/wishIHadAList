@@ -17,6 +17,8 @@ services:
     depends_on:
       - db
       - rabbitmq
+    extra_hosts:
+      - host.docker.internal:host-gateway
 
   webserver:
     image: nginx:alpine
