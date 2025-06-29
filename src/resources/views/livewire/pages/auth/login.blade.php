@@ -53,9 +53,9 @@ new #[Layout('layouts.guest')] class extends Component {
             <a href="{{ route('yandex.login') }}" class="social-button yandex">
                 Войти через Яндекс
             </a>
-            <a href="{{ route('vk.login') }}" class="social-button vk">
+{{--            <a href="{{ route('vk.login') }}" class="social-button vk">
                 Войти через VK
-            </a>
+            </a>--}}
         </div>
 
         <!-- Remember Me -->

@@ -1,4 +1,5 @@
 body {
+    text-align: center;
     font-family: 'Montserrat', sans-serif;
     background-color: #F8E0E6;
     color: #1A3C34;
@@ -125,7 +126,7 @@ body.dark-theme .logo .special {
 }
 
 .text-error {
-    color: #dc2626;
+    color: #f87171;
 }
 
 .dark-theme .text-error {
@@ -133,7 +134,7 @@ body.dark-theme .logo .special {
 }
 
 .text-success {
-    color: #10b981;
+    color: #34d399;
 }
 
 .dark-theme .text-success {

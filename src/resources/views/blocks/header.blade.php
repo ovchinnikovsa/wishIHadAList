@@ -10,7 +10,7 @@
     @vite(['resources/css/app.css'])
 {{--    @vite(['resources/js/app.js'])--}}
 </head>
-<body class="{{ false ? 'light-theme' : 'dark-theme' }}">
+<body class="{{ true ? 'light-theme' : 'dark-theme' }}">
 <header class="header">
     <div class="container container-center">
         <div class="logo">

@@ -30,6 +30,11 @@
 @endif
 
 <main class="content">
+    @foreach ($errors->all() as $error)
+        <p class="text-error">
+            {{ $error }}
+        </p>
+    @endforeach
     {{ $slot }}
 </main>
 <footer class="footer">
