@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('vkontakte_id')->nullable()->after('yandex_id');
+        Schema::table('users', function ($table) {
+            $table->dropColumn(['google_id', 'yandex_id', 'vkontakte_id']);
         });
     }
 
@@ -21,10 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasColumn('users', 'vkontakte_id')) {
-                $table->dropColumn('vkontakte_id');
-            }
-        });
+        //
     }
 };

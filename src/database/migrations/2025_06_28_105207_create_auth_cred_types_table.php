@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('vkontakte_id')->nullable()->after('yandex_id');
+        Schema::create('auth_cred_types', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -21,10 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasColumn('users', 'vkontakte_id')) {
-                $table->dropColumn('vkontakte_id');
-            }
-        });
+        Schema::dropIfExists('auth_cred_types');
     }
 };
